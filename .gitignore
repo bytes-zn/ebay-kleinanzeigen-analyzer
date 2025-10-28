@@ -65,3 +65,6 @@ coverage.xml
 # Project specific
 .pytest_cache/
 .ruff_cache/
+
+# Databae
+.docker/database/
