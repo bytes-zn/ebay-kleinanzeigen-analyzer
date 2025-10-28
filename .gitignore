@@ -66,5 +66,5 @@ coverage.xml
 .pytest_cache/
 .ruff_cache/
 
-# Databae
+# Database
 .docker/database/
