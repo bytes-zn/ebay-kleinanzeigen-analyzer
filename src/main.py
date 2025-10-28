@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from routers import inserate, inserat
+from fastapi_mcp import FastApiMCP
 
 app = FastAPI(
     version="1.0.0"
@@ -16,4 +17,8 @@ async def root():
     }
 
 app.include_router(inserate.router)
-app.include_router(inserat.router) 
+app.include_router(inserat.router)
+
+mcp = FastApiMCP(app)
+
+mcp.mount()
