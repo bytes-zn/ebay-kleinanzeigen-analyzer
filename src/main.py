@@ -3,7 +3,7 @@ from routers import inserate, inserat
 from fastapi_mcp import FastApiMCP
 
 app = FastAPI(
-    version="1.0.0"
+    version="1.0.0",
 )
 
 @app.get("/")
@@ -19,6 +19,10 @@ async def root():
 app.include_router(inserate.router)
 app.include_router(inserat.router)
 
-mcp = FastApiMCP(app)
+mcp = FastApiMCP(
+    app,
+    name="Kleinanzeigen API",
+    description="An MCP Server for gathering inserates and detailed information from Kleinanzeigen",
+)
 
-mcp.mount()
+mcp.mount_http()

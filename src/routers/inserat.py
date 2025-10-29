@@ -4,7 +4,7 @@ from utils.browser import PlaywrightManager
 
 router = APIRouter()
 
-@router.get("/inserat/{id}")
+@router.get("/inserat/{id}", operation_id="get_detailed_inserate_information")
 async def get_inserat(id: str):
     browser_manager = PlaywrightManager()
     await browser_manager.start()

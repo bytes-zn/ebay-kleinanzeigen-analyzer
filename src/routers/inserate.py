@@ -6,7 +6,7 @@ from utils.browser import PlaywrightManager
 router = APIRouter()
 
 
-@router.get("/inserate")
+@router.get("/inserate", operation_id="get_inserates")
 async def get_inserate(query: str = Query(None),
                        location: str = Query(None),
                        radius: int = Query(None),

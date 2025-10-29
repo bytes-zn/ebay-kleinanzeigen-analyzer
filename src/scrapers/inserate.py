@@ -11,7 +11,7 @@ async def get_inserate_klaz(browser_manager: PlaywrightManager,
                             radius: int = None,
                             min_price: int = None,
                             max_price: int = None,
-                            page_count: int = 1):
+                            page_count: int = 3):
     base_url = "https://www.kleinanzeigen.de"
 
     # Build the price filter part of the path
@@ -82,7 +82,7 @@ async def get_ads(page):
                 description_text = await description.inner_text() if description else ""
                 if data_adid and data_href:
                     data_href = f"https://www.kleinanzeigen.de{data_href}"
-                    results.append({"adid": data_adid, "url": data_href, "title": title_text, "price": price_text, "description": description_text})
+                    results.append({"id": data_adid, "url": data_href, "title": title_text, "price": price_text, "description": description_text})
         return results
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
